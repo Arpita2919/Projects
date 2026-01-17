@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Interview Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>AI Interview Performance Analyzer</h1>
+  <button id="themeToggle" class="theme-btn">🌙 Dark Mode</button>
+
+  <div class="interview-box">
+    <h3 id="question-number">Question 1</h3>
+    <p id="question-text">Tell me about yourself.</p>
+
+    <p><b>Your Answer (Live):</b></p>
+    <div id="transcript"
+     style="min-height:60px; border:1px solid #ccc; padding:10px;">
+    </div>
+
+    <p><b>Camera Preview:</b></p>
+    <video id="video" width="300" height="220" autoplay muted></video>
+    <p id="faceStatus">Face not detected</p>
+     
+    <hr>
+
+<h3>Performance Dashboard</h3>
+
+<div class="dashboard">
+  <div class="card">
+    <p>Final Score</p>
+    <div class="bar">
+      <div id="scoreBar" class="fill"></div>
+    </div>
+    <span id="scoreText">0 / 100</span>
+  </div>
+
+  <div class="card">
+    <p>Eye Contact</p>
+    <div class="bar">
+      <div id="eyeBar" class="fill eye"></div>
+    </div>
+    <span id="eyeText">0%</span>
+  </div>
+
+  <div class="stats">
+    <p>WPM: <span id="wpmText">0</span></p>
+    <p>Pauses: <span id="pauseText">0</span></p>
+    <p>Filler Words: <span id="fillerText">0</span></p>
+  </div>
+</div>
+    <button id="startBtn">Start Answer</button>
+    <button id="stopBtn" disabled>Stop Answer</button>
+
+    <br><br>
+    <button id="nextBtn">Next Question</button>
+     <br>
+  <button id="pdfBtn" disabled>Download PDF Report</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_detection/face_detection.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

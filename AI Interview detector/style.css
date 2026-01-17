@@ -1,0 +1,287 @@
+/* ===============================
+   Global Reset
+================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===============================
+   THEME VARIABLES
+================================ */
+:root {
+  /* Light Mode */
+  --bg-gradient: linear-gradient(
+    -45deg,
+    #e3f2fd,
+    #bbdefb,
+    #90caf9,
+    #e1f5fe
+  );
+
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --text-color: #000000;
+  --subtext-color: #333333;
+  --border-color: #dddddd;
+}
+
+body[data-theme="dark"] {
+  /* Dark Mode */
+  --bg-gradient: linear-gradient(
+    -45deg,
+    #0f2027,
+    #203a43,
+    #2c5364,
+    #1c1c2b
+  );
+
+  --card-bg: rgba(20, 20, 20, 0.88);
+  --text-color: #ffffff;
+  --subtext-color: #e0e0e0;
+  --border-color: #444444;
+}
+
+/* ===============================
+   Animated Background
+================================ */
+body {
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  background-size: 400% 400%;
+  animation: gradientMove 14s ease infinite;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===============================
+   Main Card (Glassmorphism)
+================================ */
+.interview-box {
+  width: 90%;
+  max-width: 800px;
+  padding: 25px 30px;
+  border-radius: 16px;
+
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+
+  color: var(--text-color);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  animation: fadeSlideUp 0.8s ease-out;
+}
+
+/* ===============================
+   Page Load Animation
+================================ */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   Headings & Text
+================================ */
+h1 {
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.interview-box h3 {
+  margin: 15px 0 10px;
+  color: var(--subtext-color);
+}
+
+p,
+span {
+  color: var(--subtext-color);
+}
+
+#question-text {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+
+/* ===============================
+   Transcript Box
+================================ */
+#transcript {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  padding: 12px;
+  min-height: 70px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 15px;
+  font-size: 15px;
+  color: var(--text-color);
+}
+
+body[data-theme="dark"] #transcript {
+  background: #2b2b2b;
+}
+
+/* ===============================
+   Buttons
+================================ */
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 6px 4px;
+  transition: all 0.3s ease;
+}
+
+#startBtn { background: #4caf50; color: #fff; }
+#stopBtn { background: #f44336; color: #fff; }
+#nextBtn { background: #2196f3; color: #fff; }
+
+#pdfBtn {
+  background: #673ab7;
+  color: #fff;
+  width: 100%;
+  margin-top: 10px;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+button:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+/* ===============================
+   Camera Section
+================================ */
+video {
+  border-radius: 12px;
+  border: 2px solid var(--border-color);
+  margin-top: 8px;
+}
+
+#faceStatus {
+  margin-top: 6px;
+  font-weight: bold;
+}
+
+/* ===============================
+   Dashboard
+================================ */
+.dashboard {
+  margin-top: 20px;
+}
+
+.card {
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card p {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* ===============================
+   Progress Bars
+================================ */
+.bar {
+  width: 100%;
+  height: 14px;
+  background: var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #4caf50, #8bc34a);
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fill.eye {
+  background: linear-gradient(90deg, #2196f3, #03a9f4);
+}
+
+#scoreText,
+#eyeText {
+  display: block;
+  margin-top: 4px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+/* ===============================
+   Stats Section
+================================ */
+.stats {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+body[data-theme="dark"] .stats {
+  background: #2a2a2a;
+}
+
+.stats p {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* ===============================
+   Dark Mode Toggle Button
+================================ */
+.theme-btn {
+  float: right;
+  background: #444;
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* ===============================
+   Background Animation
+================================ */
+@keyframes gradientMove {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===============================
+   Responsive
+================================ */
+@media (max-width: 600px) {
+  .stats {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
