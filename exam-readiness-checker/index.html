@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exam Readiness Checker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Exam Readiness Checker</h1>
+  <p>Enter your details to check exam readiness</p>
+
+  <div class="form-box">
+
+    <label>Syllabus Completed (%)</label><br>
+    <input type="text" id="syllabus" inputmode="numeric"><br><br>
+
+    <label>Daily Study Hours</label><br>
+    <input type="text" id="study" inputmode="numeric"><br><br>
+
+    <label>Sleep Hours (per day)</label><br>
+    <input type="text" id="sleep" inputmode="numeric"><br><br>
+
+    <label>Mock Test Score (%)</label><br>
+    <input type="text" id="mock" inputmode="numeric"><br><br>
+
+    <label>Revision Completed?</label><br>
+    <select id="revision">
+      <option value="1">Yes</option>
+      <option value="0">No</option>
+    </select><br><br>
+
+    <button onclick="getData()">Check Readiness</button>
+    <p id="output"></p>
+    <div class="progress-container">
+      <div id="progress-bar"></div>
+    </div>
+
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
